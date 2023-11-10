@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AI Image Expander</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <script src="script.js"></script>
+    <nav class="header">
+      <h1>AI Image Expander</h1>
+    </nav>
+
+    <div class="main">
+      <button id="testButton">Test</button>
+
+      <label for="img-upload">Upload Image</label>
+      <input type="file" id="fileInput" accept="image/*" />
+
+      <img
+        id="uploadedImage"
+        src="#"
+        alt="Uploaded Image"
+        style="max-width: 100%; display: none"
+      />
+
+      <button id="aspect169">16:9</button>
+      <button id="aspect11">1:1</button>
+      <button id="aspect23">2:3</button>
+
+      <canvas id="canvas"></canvas>
+
+      <img id="maskedImage" src="" alt="Masked Image" />
+
+      <button id="expandImageButton">Expand Image</button>
+    </div>
+  </body>
+</html>

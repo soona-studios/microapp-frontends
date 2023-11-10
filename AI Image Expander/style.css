@@ -1,0 +1,27 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 768px;
+  gap: 1rem;
+}
+
+button {
+  max-width: 300px;
+}
+
+#canvas {
+  background: url("canvas.png");
+}
+
+.output-img-container {
+  display: none;
+}
+
+#maskedImage {
+  display: none;
+}

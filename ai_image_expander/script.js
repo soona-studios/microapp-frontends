@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const fileInput = document.getElementById("fileInput");
-  const maskedImage = document.getElementById("maskedImage");
   let resultImage = document.getElementById("resultImage");
   const aspect169 = document.getElementById("aspect169");
   const aspect11 = document.getElementById("aspect11");
@@ -13,10 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const scaleSlider = document.getElementById("scaleSlider");
 
   let uploadedImage = null;
-  let uploadedImageFile = null;
   let maskedDataURL = null;
-  let maskFile = null;
-  let aspectRatio = 16 / 9; // Default aspect ratio
+  let aspectRatio = 1; // Default aspect ratio
 
   const canvasContainer = document.getElementById("canvasContainer"); // Add a container for the canvas in your HTML
   let scaleFactor = 1;
@@ -92,17 +89,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   expandImageButton.addEventListener("click", function () {
-    console.log("hello");
     expandImage();
   });
 
   // Draw the canvas with overlay and mask
   function drawCanvas() {
     if (!uploadedImage) {
-      // Handle case where no image is uploaded
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#FFF"; // Or any other background color
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
       return;
     }
 
@@ -201,12 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Convert the mask canvas to a Data URL
     maskedDataURL = maskCanvas.toDataURL("image/png"); // Specify the desired image format
 
-    // add url to maskedImage element
-    maskedImage.src = maskedDataURL;
-
-    // display maskedImage
-    maskedImage.style.display = "block";
-
     createBlobs(maskedDataURL);
   }
 
@@ -253,8 +239,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("http://localhost:8000/api/v1/predictions/", options)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         resultImage.src = data[0];
+        resultImage.style.display = "block";
       });
   }
 });

@@ -9,46 +9,46 @@
 
   <body>
     <script src="script.js"></script>
-    <nav class="header">
-      <h1>AI Image Expander</h1>
-    </nav>
+    <div class="main-container">
+      <nav class="header">
+        <h1>AI Image Expander</h1>
+      </nav>
 
-    <div class="main">
-      <label for="img-upload">Upload Image</label>
-      <input type="file" id="fileInput" accept="image/*" />
+      <div class="columns">
+        <!-- canvas -->
+        <div class="column canvas-column">
+          <div id="canvasContainer">
+            <canvas id="canvas"></canvas>
+          </div>
+        </div>
+        <!-- user controls -->
+        <aside class="column controls-column">
+          <h2>Upload Image</h2>
+          <input type="file" id="fileInput" accept="image/*" />
 
-      <img
-        id="uploadedImage"
-        src="#"
-        alt="Uploaded Image"
-        style="max-width: 100%; display: none"
-      />
+          <h2>Aspect Ratio</h2>
+          <button id="aspect169">16:9</button>
+          <button id="aspect11">1:1</button>
+          <button id="aspect23">2:3</button>
 
-      <h2>Aspect Ratio</h2>
-      <button id="aspect169">16:9</button>
-      <button id="aspect11">1:1</button>
-      <button id="aspect23">2:3</button>
+          <h2>Size</h2>
+          <input
+            type="range"
+            id="scaleSlider"
+            min="0.1"
+            max="2"
+            step="0.1"
+            value="1"
+          />
 
-      <h2>Size</h2>
-      <input
-        type="range"
-        id="scaleSlider"
-        min="0.1"
-        max="2"
-        step="0.1"
-        value="1"
-      />
-
-      <div id="canvasContainer">
-        <canvas id="canvas"></canvas>
+          <button id="expandImageButton">Expand Image</button>
+        </aside>
       </div>
 
-      <img id="maskedImage" src="" alt="Masked Image" />
-
-      <h2>Result</h2>
-      <img id="resultImage" src="" alt="Result Image" />
-
-      <button id="expandImageButton">Expand Image</button>
+      <div class="result-container">
+        <h2>Result</h2>
+        <img id="resultImage" src="" alt="Result Image" />
+      </div>
     </div>
   </body>
 </html>

@@ -24,11 +24,24 @@
         style="max-width: 100%; display: none"
       />
 
+      <h2>Aspect Ratio</h2>
       <button id="aspect169">16:9</button>
       <button id="aspect11">1:1</button>
       <button id="aspect23">2:3</button>
 
-      <canvas id="canvas"></canvas>
+      <h2>Size</h2>
+      <input
+        type="range"
+        id="scaleSlider"
+        min="0.1"
+        max="2"
+        step="0.1"
+        value="1"
+      />
+
+      <div id="canvasContainer">
+        <canvas id="canvas"></canvas>
+      </div>
 
       <img id="maskedImage" src="" alt="Masked Image" />
 

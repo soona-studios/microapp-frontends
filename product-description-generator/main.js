@@ -241,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProductDescription(data.outputs.description);
         hideLoadingState();
         removeBars([4, 5]);
+        addClipboardAnimation();
         resetPollCount();
       } else {
         throw new Error("Sorry, something went wrong. Please try again.");
@@ -252,6 +253,14 @@ document.addEventListener("DOMContentLoaded", function () {
       showErrorState();
       resetPollCount();
     }
+  }
+
+  function addClipboardAnimation() {
+    const tooltip = document.querySelector(".pd-tooltip");
+    const barWrapper = document.querySelector(".pd-bar-wrapper._6");
+
+    tooltip.classList.add("show-tooltip");
+    barWrapper.classList.add("add-outline");
   }
 
   function updateProductDescription(description) {

@@ -33,6 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addEventListeners() {
+    document
+      .getElementById("pd-form")
+      .addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+        }
+      });
+
     document.querySelectorAll(".next-button").forEach((button) => {
       button.addEventListener("click", nextClicked);
     });
@@ -256,10 +264,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addClipboardAnimation() {
-    const tooltip = document.querySelector(".pd-tooltip");
-    const barWrapper = document.querySelector(".pd-bar-wrapper._6");
-
+    // get last item in node list
+    const tooltips = document.querySelectorAll(".pd-tooltip");
+    const tooltip = tooltips[tooltips.length - 1];
     tooltip.classList.add("show-tooltip");
+
+    const barWrappers = document.querySelectorAll(".pd-bar-wrapper._6");
+    const barWrapper = barWrappers[barWrappers.length - 1];
     barWrapper.classList.add("add-outline");
   }
 
@@ -302,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (bars) {
         bars.forEach((bar) => {
           bar.style.transform = "translate3d(-100%, 0px, 0px)"; // This will now animate smoothly
+          bar.style.display = "none";
         });
       }
     });

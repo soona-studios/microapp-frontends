@@ -251,6 +251,11 @@ document.addEventListener("DOMContentLoaded", function () {
         removeBars([4, 5]);
         addClipboardAnimation();
         resetPollCount();
+      } else if (data.outputs.message) {
+        console.error(data.outputs.message);
+        hideLoadingState();
+        showErrorState();
+        resetPollCount();
       } else {
         throw new Error("Sorry, something went wrong. Please try again.");
       }

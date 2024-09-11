@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
       generate: {
         provider: "respell",
         payload: {
-          spellId: "d6W1mVyb-wpsMfrsmJed0",
+          spellId: "clxicu04q00ag13uv93w7d2kl",
           inputs: {
             product_name: product,
             keywords: keywords,
